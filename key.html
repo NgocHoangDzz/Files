@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Key Generator</title>
+  <title>Key Security</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -21,12 +21,12 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-cover bg-center text-white" style="background-image: url('https://raw.githubusercontent.com/NgocHoangDzz/Avt/refs/heads/main/background.png');">
+<body class="min-h-screen flex flex-col bg-cover bg-center text-white" style="background-image: url('https://raw.githubusercontent.com/NgocHoangDzz/Avt/refs/heads/main/image.jpg');">
 
   <!-- Navbar -->
   <div class="flex justify-between items-center px-6 py-4 bg-gray-900/80">
     <button onclick="toggleSidebar()" class="text-3xl">☰</button>
-    <h1 class="text-xl font-bold">Get HTG Key</h1>
+    <h1 class="text-xl font-bold">Key Security</h1>
     
     <!-- Logo -->
     <a href="https://discord.gg/YkRK3DRHN4" target="_blank" rel="noopener noreferrer" title="Discord" class="block w-10 h-10 rounded-lg overflow-hidden">
@@ -47,10 +47,10 @@
   <div class="flex flex-col items-center justify-center flex-1 text-center p-4">
     <div class="bg-black/40 backdrop-blur-lg rounded-xl p-6 max-w-[90vw] w-full sm:w-[500px]">
       <h2 class="text-2xl mb-6 font-semibold">Get Key HTG</h2>
-      <div id="keyDisplay" class="rainbow-text text-xl mb-4 break-words" style="user-select:none;opacity:0;">Chưa có key</div>
+      <div id="keyDisplay" class="rainbow-text text-xl mb-4 break-words" style="user-select:none;opacity:0;">No key yet</div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button id="getKeyBtn" onclick="showKey()" class="bg-blue-500 px-6 py-2 rounded">Nhận Key</button>
-        <button id="copyBtn" onclick="copyKey()" class="bg-green-500 px-6 py-2 rounded" style="display:none;">Copy Key</button>
+        <button id="getKeyBtn" onclick="showKey()" class="bg-blue-500 px-6 py-2 rounded">Get key</button>
+        <button id="copyBtn" onclick="copyKey()" class="bg-green-500 px-6 py-2 rounded" style="display:none;">Key copied</button>
       </div>
     </div>
   </div>
@@ -60,16 +60,32 @@
       document.getElementById("sidebar").classList.toggle("open");
     }
 
-    const fixedKey = "HTG_n8rQxccojqT9RVZmQjPN78AE5l"; // Thay key
+    const fixedKey = "HTG_KwJtEF9tRDdQTyi"; // Thay key
 
     function showKey() {
       const keyDisplay = document.getElementById("keyDisplay");
-      keyDisplay.textContent = fixedKey;
+      const getKeyBtn = document.getElementById("getKeyBtn");
+      const copyBtn = document.getElementById("copyBtn");
+
+      let countdown = 29; // giây đếm ngược
+      getKeyBtn.disabled = true; // khóa nút để tránh bấm nhiều lần
       keyDisplay.style.opacity = 1;
-      keyDisplay.style.userSelect = "text";
-      document.getElementById("getKeyBtn").style.display = "none";
-      document.getElementById("copyBtn").style.display = "inline-block";
-      renderSidebar(fixedKey);
+      keyDisplay.style.userSelect = "none";
+      keyDisplay.textContent = `Vui lòng đợi ${countdown} giây...`;
+
+      const timer = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+          keyDisplay.textContent = `Vui lòng đợi ${countdown} giây...`;
+        } else {
+          clearInterval(timer);
+          keyDisplay.textContent = fixedKey;
+          keyDisplay.style.userSelect = "text";
+          getKeyBtn.style.display = "none";
+          copyBtn.style.display = "inline-block";
+          renderSidebar(fixedKey);
+        }
+      }, 1000);
     }
 
     function copyKey() {
@@ -84,7 +100,7 @@
     }
 
     window.onload = () => {
-      // Key ẩn ban đầu, chưa hiện
+      // Key ẩn ban đầu
     };
   </script>
 </body>
