@@ -330,7 +330,9 @@ footer {
 }
 
 .download-button {
-    
+    /* Các style riêng cho nút download nếu cần, ví dụ: */
+    /* background-color: #28a744; Green color */
+    /* box-shadow: 0 4px 8px rgba(40, 167, 68, 0.2); */
 }
 
 /* Responsive cho nút tải file nếu cần */
@@ -340,6 +342,6 @@ footer {
         align-items: center; /* Căn giữa các nút khi xếp cột */
     }
     .download-button {
-        width: 90%; /* Nút rộng hơn trên mobile */
+        width: 60%; /* Nút rộng hơn trên mobile */
     }
-}
+        }
