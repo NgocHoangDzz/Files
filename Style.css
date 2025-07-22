@@ -318,3 +318,28 @@ footer {
     object-fit: cover;
     z-index: -1;
 }
+
+
+/* Thêm vào Style.css của bạn nếu muốn tùy chỉnh riêng cho download button */
+.download-section {
+    margin-top: 30px; /* Khoảng cách từ đoạn văn trên */
+    display: flex; /* Dùng flexbox để sắp xếp các nút */
+    justify-content: center; /* Căn giữa các nút */
+    gap: 20px; /* Khoảng cách giữa các nút */
+    flex-wrap: wrap; /* Cho phép các nút xuống dòng trên màn hình nhỏ */
+}
+
+.download-button {
+    
+}
+
+/* Responsive cho nút tải file nếu cần */
+@media (max-width: 480px) {
+    .download-section {
+        flex-direction: column; /* Xếp các nút theo cột trên mobile */
+        align-items: center; /* Căn giữa các nút khi xếp cột */
+    }
+    .download-button {
+        width: 90%; /* Nút rộng hơn trên mobile */
+    }
+}
