@@ -1,10 +1,3 @@
-if (sessionStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-  }
-if (sessionStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const form = document.querySelector('.contact-form');
