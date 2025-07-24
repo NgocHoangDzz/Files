@@ -1,3 +1,10 @@
+if (sessionStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+if (sessionStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const form = document.querySelector('.contact-form');
@@ -54,4 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+
+
+document.addEventListener('click', () => {
+    const clickAudio = document.getElementById('click-sound');
+        if (clickAudio) {
+            clickAudio.currentTime = 0;
+            clickAudio.play();
+    }
 });
