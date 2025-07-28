@@ -14,6 +14,7 @@
 	--color-1: #0f1016;
     --text-color: #f0f0f0;
     --accent-color: #006aff;
+    --s1: #313131
 }
 
 *{
@@ -353,12 +354,11 @@ body {
 }
 
 footer {
-    background-color: #282932;
+    background-color: var(--s1);
     color: #FFFFFF;
     text-align: center;
-    padding: 5px;
     margin-top: 0px auto;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 
 @media (max-width: 768px) {
@@ -668,11 +668,11 @@ footer {
     display: none !important;
 }
 
-img{
+.left img{
     width: 100px;
     border-radius: 50%;
 }
-img:hover{
+.left img:hover{
     transform: translateY(-3px);
 }
 
@@ -690,4 +690,4 @@ img:hover{
     to{
         background-position: 200%;
     }
-    }
+}
